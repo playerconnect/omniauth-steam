@@ -8,7 +8,7 @@ module OmniAuth
 
       option :api_key, nil
       option :name, "steam"
-      option :identifier, "https://steamcommunity.com/openid"
+      option :identifier, "http://steamcommunity.com/openid"
 
       uid { steam_id }
 
@@ -61,11 +61,11 @@ module OmniAuth
       end
 
       def player_profile_uri
-        URI.parse("https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=#{options.api_key}&steamids=#{steam_id}")
+        URI.parse("http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=#{options.api_key}&steamids=#{steam_id}")
       end
 
       def friend_list_url
-        URI.parse("https://api.steampowered.com/ISteamUser/GetFriendList/v0001/?key=#{options.api_key}&steamid=#{steam_id}&relationship=friend")
+        URI.parse("http://api.steampowered.com/ISteamUser/GetFriendList/v0001/?key=#{options.api_key}&steamid=#{steam_id}&relationship=friend")
       end
     end
   end
